@@ -1,0 +1,24 @@
+<html>
+<head><title>Tweets</title></head>
+
+<body>
+
+<h1>Twitter timeline</h1>
+
+<p>Dear {{ handle }},</p>
+
+
+
+<p>Here is a glimpse of your timeline :</p>
+
+<ul>
+{% for status in tweepy.Cursor(api.user_timeline,id=handle).items(100): %}
+    <li>{{ status.text }}</li>
+{% endfor %}
+</ul>
+
+
+<p>Sincerely,<br />{{ company }}</p>
+
+</body>
+</html>
